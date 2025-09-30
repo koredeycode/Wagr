@@ -1,6 +1,5 @@
 "use client";
 
-import { NotificationProvider } from "@/lib/NotificationContext";
 import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -22,7 +21,7 @@ export default function Providers(props: { children: ReactNode }) {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider modalSize="compact" showRecentTransactions={true}>
-          <NotificationProvider>{props.children}</NotificationProvider>
+          {props.children}
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
