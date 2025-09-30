@@ -1,0 +1,35 @@
+{
+  "name": "wagr-backend",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "tsc -p .",
+    "start": "node dist/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "drizzle-orm": "^0.44.5",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.6",
+    "pg": "^8.16.3",
+    "postgres": "^3.4.7",
+    "socket.io": "^4.8.1",
+    "viem": "^2.37.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.2",
+    "@types/nodemailer": "^7.0.1",
+    "@types/pg": "^8.15.5",
+    "@types/socket.io": "^3.0.1",
+    "eslint": "^9.35.0",
+    "prettier": "^3.6.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.2"
+  }
+}

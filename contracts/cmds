@@ -1,0 +1,5 @@
+forge build
+
+forge create ./src/Wagr.sol:Wagr --broadcast --rpc-url $BASE_SEPOLIA_RPC --account deployer --constructor-args 0x6453DBB7148d30a517E2E16AE5b11B3b7d2cEC29
+
+forge verify-contract 0x8592Be92fBD4E57f5F0b255f5ED9bE2E315c1558 ./src/Wagr.sol:Wagr --chain 84532 --watch

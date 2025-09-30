@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #2a3dea;
+
+  --background: #ffffff;
+  /* --background: #fcf8f8; */
+  /* --dark-bg: #111827; */
+
+  --text: #1b0e0e;
+  /* --dark-text: #f9fafb; */
+
+  --border: #e7eaf3;
+  /* --dark-border: #374151; */
+
+  --secondary: #994d51;
+  /* --dark-secondary-text: #9ca3af; */
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-background: var(--background);
+  --color-text: var(--text);
+  --color-border: var(--border);
+  --color-secondary: var(--secondary);
+
+  --font-spline: var(--font-spline-sans);
+  --font-noto: var(--font-noto-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+/* 
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+.status-pending {
+  color: #fdd835;
+  background-color: rgba(253, 216, 53, 0.1);
+}
+.status-countered {
+  color: #ffa726;
+  background-color: rgba(255, 167, 38, 0.1);
+}
+.status-won {
+  color: #00e676;
+  background-color: rgba(0, 230, 118, 0.1);
+}
+.status-lost {
+  color: #ef5350;
+  background-color: rgba(239, 83, 80, 0.1);
+}
+
+.form-select {
+  background-image: url('data:image/svg + xml,%3csvgxmlns="http://www.w3.org/2000/svg"fill="none"viewBox="0 0 20 20"%3e%3cpathstroke="%236b7280"stroke-linecap="round"stroke-linejoin="round"stroke-width="1.5"d="M6 8l4 4 4-4"/%3e%3c/svg%3e');
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  print-color-adjust: exact;
+}
+
+.form-input,
+.form-textarea,
+.form-select,
+.form-multiselect {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border-color: #6b7280;
+  border-width: 1px;
+  border-radius: 0px;
+  padding-top: 0.5rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  --tw-shadow: 0 0 #0000;
+}
