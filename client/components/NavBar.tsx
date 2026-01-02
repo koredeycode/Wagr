@@ -12,7 +12,7 @@ import Notifications from "./Notifications";
 
 const navItems = [
   { name: "Explore", href: "/explore" },
-  { name: "My Wagers", href: "/wagers" },
+  { name: "My Wagers", href: "/wagers", exact: true },
   { name: "Create Wager", href: "/wagers/create" },
 ];
 
@@ -49,7 +49,7 @@ const NavBar = () => {
       <div className="flex flex-1 items-center justify-end gap-4 md:gap-8">
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item, index) => {
-            return <NavLink key={index} name={item.name} href={item.href} />;
+            return <NavLink key={index} name={item.name} href={item.href} exact={item.exact} />;
           })}
         </nav>
         <Notifications />

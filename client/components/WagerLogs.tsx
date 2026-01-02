@@ -16,9 +16,8 @@ export default function WagerLogs({ wagerId }: { wagerId: string }) {
       <ul>
         {events.map((event) => (
           <li key={event.id}>
-            {event.type.toUpperCase()} -{" "}
-            {event.data ? JSON.stringify(event.data) : ""} at{" "}
-            {event.timestamp.toLocaleString()}
+            {event.type.toUpperCase()} at{" "}
+            {new Date(event.createdAt).toLocaleString()}
           </li>
         ))}
       </ul>

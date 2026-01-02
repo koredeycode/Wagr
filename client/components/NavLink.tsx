@@ -6,11 +6,17 @@ import { usePathname } from "next/navigation";
 type NavItem = {
   name: string;
   href: string;
+  exact?: boolean; // If true, only exact match is considered active
 };
 
-const NavLink = ({ name, href }: NavItem) => {
+const NavLink = ({ name, href, exact = false }: NavItem) => {
   const pathname = usePathname();
-  const isActive = pathname === href || pathname.startsWith(href + "/");
+  
+  // For exact matching, only match if path is exactly the href
+  // For non-exact, also match if current path is a child of href
+  const isActive = exact
+    ? pathname === href
+    : pathname === href || pathname.startsWith(href + "/");
 
   return (
     <Link
@@ -23,3 +29,4 @@ const NavLink = ({ name, href }: NavItem) => {
 };
 
 export default NavLink;
+
