@@ -1,4 +1,4 @@
-// app/api/wagers/route.ts
+// app/api/events/route.ts
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { event } from "@/lib/schema";

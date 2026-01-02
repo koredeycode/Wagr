@@ -8,7 +8,7 @@ import { WagmiProvider } from "wagmi";
 import { baseSepolia } from "wagmi/chains";
 
 const config = getDefaultConfig({
-  appName: "Wise Wager",
+  appName: "Wagr",
   projectId: "c88d8e2bf975518611a70fc18ec4b7f6",
   chains: [baseSepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)

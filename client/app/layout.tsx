@@ -17,7 +17,7 @@ const notoSans = Noto_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Wise Wager",
+  title: "Wagr",
   description: "P2P Wager betting platform",
 };
 
