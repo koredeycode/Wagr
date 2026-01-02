@@ -4,7 +4,7 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useAccount, useDisconnect, useSignMessage } from "wagmi"; // Assuming wagmi for wallet integration
+import { useAccount, useDisconnect, useSignMessage } from "wagmi";
 
 export default function SignInPage() {
   const { address, chainId } = useAccount();
@@ -48,7 +48,7 @@ export default function SignInPage() {
     });
     if (!nonceData) return;
 
-    // Step 2: Create SIWE message (manually or using a library like siwe)
+    // Step 2: Create SIWE message
     const message = `example.com wants you to sign in with your Ethereum account:\n${address}\n\nSign in with Ethereum to the app.\n\nURI: https://example.com\nVersion: 1\nChain ID: ${
       chainId || 1
     }\nNonce: ${nonceData.nonce}\nIssued At: ${new Date().toISOString()}`;
@@ -62,12 +62,11 @@ export default function SignInPage() {
       signature,
       walletAddress: address,
       chainId,
-      email, // Required if anonymous: false
+      email,
     });
 
     if (verifyData) {
       console.log("Signed in:", verifyData.user);
-      // Redirect or update UI
       router.push("/explore");
     }
   };
@@ -81,16 +80,16 @@ export default function SignInPage() {
               login
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Login to Wagr</h2>
-          <p className="text-gray-500 dark:text-gray-400 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">Login to Wagr</h2>
+          <p className="text-text-muted mb-8">
             Connect your wallet and enter your email to access your account.
           </p>
           <div className="space-y-4">
             {address ? (
               <>
-                <p>{address}</p>
+                <p className="text-foreground font-mono text-sm bg-surface-elevated px-4 py-2 rounded-lg">{address}</p>
                 <button
-                  className="w-full flex items-center justify-center gap-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold py-3 px-6 rounded-full transition-transform transform hover:scale-105"
+                  className="w-full flex items-center justify-center gap-3 bg-surface-elevated hover:bg-border text-foreground font-bold py-3 px-6 rounded-full transition-all"
                   onClick={() => disconnect()}
                 >
                   <span className="material-symbols-outlined">
@@ -101,7 +100,7 @@ export default function SignInPage() {
               </>
             ) : (
               <button
-                className="w-full flex items-center justify-center gap-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold py-3 px-6 rounded-full transition-transform transform hover:scale-105"
+                className="w-full flex items-center justify-center gap-3 bg-surface-elevated hover:bg-border text-foreground font-bold py-3 px-6 rounded-full transition-all"
                 onClick={openConnectModal}
               >
                 <span className="material-symbols-outlined">
@@ -112,11 +111,11 @@ export default function SignInPage() {
             )}
 
             <div className="relative">
-              <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+              <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-muted">
                 email
               </span>
               <input
-                className="w-full bg-gray-50 dark:bg-gray-800 border border-border-light dark:border-border-dark rounded-full py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                className="w-full bg-surface border border-border rounded-full py-3 pl-12 pr-4 text-foreground placeholder:text-text-subtle focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
                 placeholder="Enter your email"
                 type="email"
                 value={email}
@@ -125,7 +124,7 @@ export default function SignInPage() {
               />
             </div>
             <button
-              className="w-full flex items-center justify-center gap-3 bg-primary hover:bg-primary/80 text-white font-bold py-3 px-6 rounded-full transition-transform transform hover:scale-105"
+              className="w-full flex items-center justify-center gap-3 bg-primary hover:bg-primary-hover text-white font-bold py-3 px-6 rounded-full transition-all"
               onClick={handleSignIn}
             >
               <span className="material-symbols-outlined">login</span>
@@ -133,14 +132,14 @@ export default function SignInPage() {
             </button>
           </div>
           <div className="mt-8">
-            <div className="flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex items-center justify-center gap-2 text-sm text-text-muted">
               <span className="material-symbols-outlined text-base">
                 shield
               </span>
               <span>Your information is secure and private.</span>
             </div>
           </div>
-          <p className="text-xs text-gray-400 dark:text-gray-500 mt-12">
+          <p className="text-xs text-text-subtle mt-12">
             By logging in, you agree to Wagr's{" "}
             <Link className="underline hover:text-primary" href="/tos">
               Terms of Service
@@ -153,7 +152,7 @@ export default function SignInPage() {
           </p>
         </div>
       </main>
-      <footer className="text-center p-4 text-xs text-gray-400 dark:text-gray-500 border-t border-border">
+      <footer className="text-center p-4 text-xs text-text-subtle border-t border-border">
         Powered by the Base Blockchain
       </footer>
     </div>
