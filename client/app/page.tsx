@@ -6,88 +6,115 @@ export default function Home() {
     <>
       <Header showSignin />
       <main className="flex-1">
-        <section className="relative">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuC75hEWgRFAXcdGTd5yK5hh7knm--AeWqCvwqrwQrez-vy8KiUY51d2sQ-ertk7ZO6kmKOoovEMD8N2_EjhN58ormem4FhNfGwpeqibz8YbZoYElTzbD2zzRk6ghdeaiLSUdOkQDBkjZvfF8Mm0_X2DS17y7GgegoUabzoVB6TyvoB5etbeUIyvcxiOK9ki2LWO4ht_3zObIihS-KFhGELjADIDtW-7Jz0H5Jkx7tN2eiTMUuxR4Zx1-67lHZuNNgcq3KSS2-Mx1WxI')",
-            }}
-          ></div>
-          <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
-          <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-48 text-center text-white">
-            <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tighter !leading-tight">
-              Bet on Anything, with Anyone.
+        {/* Hero Section */}
+        <section className="relative min-h-[85vh] flex items-center">
+          <div className="absolute inset-0 bg-surface"></div>
+          
+          <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated border border-border mb-8">
+              <span className="w-2 h-2 bg-success rounded-full"></span>
+              <span className="text-sm text-text-muted">Live on Base Sepolia</span>
+            </div>
+            
+            <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight mb-6 text-foreground">
+              Bet on Anything,
+              <br />
+              with <span className="text-primary">Anyone</span>.
             </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-300">
-              Wagr is a decentralized betting platform built on the Base
-              blockchain. Create or join wagers on any topic, from sports to
-              current events, with secure and transparent payouts.
+            
+            <p className="mt-6 max-w-2xl mx-auto text-lg text-text-muted leading-relaxed">
+              A decentralized betting platform on Base. Create or join wagers on anything with secure, transparent payouts.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4 justify-center">
+            
+            <div className="mt-10 flex flex-wrap gap-4 justify-center">
               <Link
                 href="/explore"
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-white text-base font-bold tracking-wide hover:opacity-90 transition-opacity transform hover:scale-105"
+                className="btn-primary flex items-center justify-center h-12 px-8 text-base font-semibold"
               >
-                <span className="truncate">Explore wagers</span>
+                Explore Wagers
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </Link>
               <Link
                 href="/wagers/create"
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-white/10 backdrop-blur-sm text-white border border-white/20 text-base font-bold tracking-wide hover:bg-white/20 transition-all transform hover:scale-105"
+                className="btn-secondary flex items-center justify-center h-12 px-8 text-base font-semibold"
               >
-                <span className="truncate">Create a wager</span>
+                Create a Wager
               </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="mt-20 grid grid-cols-3 gap-8 max-w-lg mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-foreground">$2.4M+</div>
+                <div className="text-sm text-text-muted mt-1">Total Volume</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-foreground">1,200+</div>
+                <div className="text-sm text-text-muted mt-1">Active Wagers</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-foreground">5,000+</div>
+                <div className="text-sm text-text-muted mt-1">Users</div>
+              </div>
             </div>
           </div>
         </section>
-        <section className="py-20 sm:py-32 bg-background">
+
+        {/* Features Section */}
+        <section className="py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                How It Works
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+                Why Choose Wagr?
               </h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-text">
-                Wagr simplifies the betting process with a user-friendly
-                interface and secure, blockchain-based transactions.
+              <p className="mt-4 max-w-2xl mx-auto text-lg text-text-muted">
+                Built for transparency, security, and the thrill of the wager.
               </p>
             </div>
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-background border border-border shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary">
-                  <span className="material-symbols-outlined text-4xl">
-                    security
-                  </span>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="glass p-8 card-hover">
+                <div className="flex items-center justify-center h-14 w-14 rounded-xl bg-primary/10 text-primary mb-6">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
                 </div>
-                <h3 className="mt-6 text-xl font-bold">
-                  Secure and Transparent
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Secure & Transparent
                 </h3>
-                <p className="mt-2 text-text">
+                <p className="text-text-muted">
                   All wagers are secured by smart contracts on the Base
                   blockchain, ensuring transparent and automated payouts.
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-background border border-border shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary">
-                  <span className="material-symbols-outlined text-4xl">
-                    hub
-                  </span>
+              
+              <div className="glass p-8 card-hover">
+                <div className="flex items-center justify-center h-14 w-14 rounded-xl bg-accent/10 text-accent mb-6">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
                 </div>
-                <h3 className="mt-6 text-xl font-bold">
-                  Decentralized and Trustless
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Decentralized & Trustless
                 </h3>
-                <p className="mt-2 text-text">
+                <p className="text-text-muted">
                   Wagr operates on a decentralized network, eliminating the need
                   for intermediaries and ensuring fair play.
                 </p>
               </div>
-              <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-background border border-border shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 text-primary">
-                  <span className="material-symbols-outlined text-4xl">
-                    groups
-                  </span>
+              
+              <div className="glass p-8 card-hover">
+                <div className="flex items-center justify-center h-14 w-14 rounded-xl bg-success/10 text-success mb-6">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
                 </div>
-                <h3 className="mt-6 text-xl font-bold">Community-Driven</h3>
-                <p className="mt-2 text-text">
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Community-Driven
+                </h3>
+                <p className="text-text-muted">
                   Join a vibrant community of bettors, create your own wagers,
                   and participate in a wide range of betting opportunities.
                 </p>
@@ -95,81 +122,91 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="bg-border/50 py-20 sm:py-32">
+
+        {/* CTA Section */}
+        <section className="py-24 bg-surface">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Ready to Bet?
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Ready to Wager?
             </h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-text">
+            <p className="max-w-2xl mx-auto text-lg text-text-muted mb-8">
               Sign up now and start creating or joining wagers on Wagr.
             </p>
-            <div className="mt-8">
-              <Link href="/sign-in">
-                <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary text-white text-base font-bold tracking-wide hover:opacity-90 transition-opacity transform hover:scale-105 mx-auto">
-                  <span className="truncate">Get Started Now</span>
-                </button>
-              </Link>
-            </div>
+            <Link href="/sign-in">
+              <button className="btn-primary h-12 px-10 text-base font-semibold">
+                Get Started Now
+              </button>
+            </Link>
           </div>
         </section>
       </main>
+      
+      {/* Footer */}
       <footer className="bg-background border-t border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex items-center gap-3">
+              <svg
+                className="h-6 w-6 text-primary"
+                fill="none"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z"
+                  fill="currentColor"
+                ></path>
+                <path
+                  clipRule="evenodd"
+                  d="M39.998 12.236C39.9944 12.2537 39.9875 12.2845 39.9748 12.3294C39.9436 12.4399 39.8949 12.5741 39.8346 12.7175C39.8168 12.7597 39.7989 12.8007 39.7813 12.8398C38.5103 13.7113 35.9788 14.9393 33.7095 15.4811C30.9875 16.131 27.6413 16.5217 24 16.5217C20.3587 16.5217 17.0125 16.131 14.2905 15.4811C12.0012 14.9346 9.44505 13.6897 8.18538 12.8168C8.17384 12.7925 8.16216 12.767 8.15052 12.7408C8.09919 12.6249 8.05721 12.5114 8.02977 12.411C8.00356 12.3152 8.00039 12.2667 8.00004 12.2612C8.00004 12.261 8 12.2607 8.00004 12.2612C8.00004 12.2359 8.0104 11.9233 8.68485 11.3686C9.34546 10.8254 10.4222 10.2469 11.9291 9.72276C14.9242 8.68098 19.1919 8 24 8C28.8081 8 33.0758 8.68098 36.0709 9.72276C37.5778 10.2469 38.6545 10.8254 39.3151 11.3686C39.9006 11.8501 39.9857 12.1489 39.998 12.236Z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                ></path>
+              </svg>
+              <span className="font-bold text-foreground">Wagr</span>
+            </div>
+            
             <div className="flex flex-wrap items-center justify-center gap-6">
               <Link
-                className="text-sm text-text hover:text-primary transition-colors"
+                className="text-sm text-text-muted hover:text-foreground transition-colors"
                 href="/how"
               >
                 How It Works
               </Link>
               <Link
-                className="text-sm text-text hover:text-primary transition-colors"
+                className="text-sm text-text-muted hover:text-foreground transition-colors"
                 href="/tos"
               >
                 Terms of Service
               </Link>
               <Link
-                className="text-sm text-text hover:text-primary transition-colors"
+                className="text-sm text-text-muted hover:text-foreground transition-colors"
                 href="/privacy"
               >
                 Privacy Policy
               </Link>
             </div>
-            <div className="flex justify-center gap-6">
+            
+            <div className="flex justify-center gap-4">
               <a
-                className="text-text hover:text-primary transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-surface border border-border text-text-muted hover:text-foreground hover:border-border-hover transition-all"
                 href="#"
               >
-                <svg
-                  aria-hidden="true"
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
                 </svg>
               </a>
               <a
-                className="text-text hover:text-primary transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-surface border border-border text-text-muted hover:text-foreground hover:border-border-hover transition-all"
                 href="#"
               >
-                <svg
-                  aria-hidden="true"
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM8.86 17.15c-.56-.16-1.07-.4-1.52-.71.45-.31.85-.69 1.2-1.12.35-.43.63-.9.84-1.39.21-.49.33-1.02.37-1.55H8.3c-.04-.53-.16-1.03-.35-1.5-.19-.47-.46-.91-.78-1.3-.32-.39-.7-.73-1.12-1.01.45-.32.96-.56 1.51-.72.55-.16 1.13-.24 1.73-.24h3.83c.6 0 1.18.08 1.73.24.55.16 1.06.4 1.51.72-.42.28-.8.62-1.12 1.01-.32.39-.59.83-.78 1.3-.19.47-.31.97-.35 1.5h-2.45c.04.53.16 1.06.37 1.55.21.49.49.96.84 1.39.35.43.75.81 1.2 1.12-.45.31-.96.55-1.52.71-.56.16-1.15.24-1.76.24s-1.2-.08-1.76-.24z"
-                    fill-rule="evenodd"
-                  ></path>
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd"></path>
                 </svg>
               </a>
             </div>
           </div>
-          <p className="mt-8 text-center text-sm text-text">
+          <p className="mt-8 text-center text-sm text-text-subtle">
             © 2025 Wagr. All rights reserved.
           </p>
         </div>

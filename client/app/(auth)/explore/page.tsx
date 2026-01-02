@@ -77,91 +77,77 @@ const Explore = () => {
   return (
     <main className="flex flex-1 justify-center py-10 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-7xl">
-        <div className="mb-8 px-4">
-          <h2 className="text-4xl font-bold tracking-tight text-text">
+        {/* Header */}
+        <div className="mb-10 px-4">
+          <h2 className="text-4xl font-bold tracking-tight text-foreground">
             Explore Pending Wagers
           </h2>
-          <p className="mt-2 text-lg text-text">
+          <p className="mt-3 text-lg text-text-muted">
             Browse and filter through uncountered wagers on the Base blockchain.
           </p>
         </div>
+
+        {/* Filters */}
         <div className="mb-8 flex flex-wrap items-center justify-end gap-4 px-4">
           <div className="flex items-center gap-4">
-            <label className="text-sm font-medium text-text">Amount</label>
+            <label className="text-sm font-medium text-text-muted">Amount</label>
             <input
-              className="form-input w-24 rounded-md border-gray-300  bg-gray-100 text-text focus:border-primary focus:ring-primary"
+              className="form-input w-24 rounded-lg"
               placeholder="Min"
               type="number"
             />
-            <span className="text-text">-</span>
+            <span className="text-text-muted">-</span>
             <input
-              className="form-input w-24 rounded-md border-gray-300 bg-gray-100 text-text focus:border-primary focus:ring-primary"
+              className="form-input w-24 rounded-lg"
               placeholder="Max"
               type="number"
             />
           </div>
           <div className="flex items-center">
             <input
-              className="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary bg-gray-100 border-border"
+              className="form-checkbox h-4 w-4"
               id="counter-available"
               type="checkbox"
             />
             <label
-              className="ml-2 text-sm font-medium text-text"
+              className="ml-2 text-sm font-medium text-text-muted"
               htmlFor="counter-available"
             >
               Open to everyone
             </label>
           </div>
         </div>
+
+        {/* Wager Grid */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {rows.map((wager) => {
             return <WagerCard key={wager.id} {...wager} />;
           })}
         </div>
-        <div className="mt-10 flex items-center justify-center space-x-2">
-          <a
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-text transition-colors hover:bg-primary hover:text-white"
-            href="#"
-          >
+
+        {/* Pagination */}
+        <div className="mt-12 flex items-center justify-center space-x-2">
+          <button className="flex h-10 w-10 items-center justify-center rounded-full bg-surface border border-border text-text-muted hover:text-foreground hover:border-border-hover transition-all">
             <span className="material-symbols-outlined">chevron_left</span>
-          </a>
-          <a
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white"
-            href="#"
-          >
+          </button>
+          <button className="flex h-10 w-10 items-center justify-center rounded-full btn-primary">
             1
-          </a>
-          <a
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-text transition-colors hover:bg-primary hover:text-white"
-            href="#"
-          >
+          </button>
+          <button className="flex h-10 w-10 items-center justify-center rounded-full bg-surface border border-border text-text-muted hover:text-foreground transition-colors">
             2
-          </a>
-          <a
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-text transition-colors hover:bg-primary hover:text-white"
-            href="#"
-          >
+          </button>
+          <button className="flex h-10 w-10 items-center justify-center rounded-full bg-surface border border-border text-text-muted hover:text-foreground transition-colors">
             3
-          </a>
-          <a
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-text transition-colors hover:bg-primary hover:text-white"
-            href="#"
-          >
+          </button>
+          <button className="flex h-10 w-10 items-center justify-center rounded-full bg-surface border border-border text-text-muted hover:text-foreground transition-colors">
             4
-          </a>
-          <a
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-text transition-colors hover:bg-primary hover:text-white"
-            href="#"
-          >
+          </button>
+          <button className="flex h-10 w-10 items-center justify-center rounded-full bg-surface border border-border text-text-muted hover:text-foreground transition-colors">
             5
-          </a>
-          <a
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-text transition-colors hover:bg-primary hover:text-white"
-            href="#"
-          >
+          </button>
+          <button className="flex h-10 w-10 items-center justify-center rounded-full bg-surface border border-border text-text-muted hover:text-foreground hover:border-border-hover transition-all">
             <span className="material-symbols-outlined">chevron_right</span>
-          </a>
+          </button>
         </div>
       </div>
     </main>

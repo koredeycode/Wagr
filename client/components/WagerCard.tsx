@@ -18,36 +18,38 @@ const WagerCard: React.FC<WagerCardProps> = ({
 }) => {
   return (
     <Link
-      className="block rounded-lg border border-border bg-background p-6 shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+      className="block glass p-6 card-hover group"
       href={`/wagers/${id}`}
     >
       <div className="flex flex-col h-full">
-        <h3 className="text-lg font-semibold text-text truncate">
+        <h3 className="text-lg font-semibold text-foreground line-clamp-2 group-hover:text-primary transition-colors">
           {description}
         </h3>
-        <p className="mt-2 text-sm text-[var(--text-secondary)] flex-grow">
+        <p className="mt-2 text-sm text-text-muted flex-grow line-clamp-2">
           {description}
         </p>
-        <div className="mt-4 border-t border-border pt-4">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-xs font-medium text-[var(--text-secondary)]">
-              Creator:
+        <div className="mt-4 border-t border-border pt-4 space-y-3">
+          <div className="flex justify-between items-center">
+            <span className="text-xs font-medium text-text-muted">
+              Creator
             </span>
-            <span className="text-xs font-mono text-text">{creator}</span>
-          </div>
-          <div className="flex justify-between items-center mb-3">
-            <span className="text-xs font-medium text-[var(--text-secondary)]">
-              Allowed Counter:
-            </span>
-            <span className="text-xs font-mono text-green-500">
-              {allowedCounter}
+            <span className="text-xs font-mono text-foreground bg-surface-elevated px-2 py-1 rounded">
+              {creator}
             </span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-sm font-semibold text-[var(--text-secondary)]">
-              Stake:
+            <span className="text-xs font-medium text-text-muted">
+              Counter
             </span>
-            <span className="text-lg font-bold text-primary">{stake} USDC</span>
+            <span className="text-xs font-mono text-success">
+              {allowedCounter}
+            </span>
+          </div>
+          <div className="flex justify-between items-center pt-2 border-t border-border">
+            <span className="text-sm font-medium text-text-muted">
+              Stake
+            </span>
+            <span className="text-xl font-bold text-primary">{stake} USDC</span>
           </div>
         </div>
       </div>

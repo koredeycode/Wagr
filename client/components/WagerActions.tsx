@@ -6,9 +6,9 @@ import { Outcome, Status, Wager } from "@/types";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import {
-  useAccount,
-  useWaitForTransactionReceipt,
-  useWriteContract,
+    useAccount,
+    useWaitForTransactionReceipt,
+    useWriteContract,
 } from "wagmi";
 
 function ActionButton({
@@ -115,14 +115,13 @@ export default function WagerActions({
   return (
     <div className="space-y-6">
       {wager.status === Status.Pending && userCanCounter && (
-        <div className="bg-white dark:bg-secondary-900 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-bold mb-4">Counter Wager</h2>
+        <div className="glass rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-foreground mb-4">Counter Wager</h2>
           <div className="flex flex-col sm:flex-row gap-4">
-            {/* Counter */}
             <ActionButton
               onClick={handleCounter}
               disabled={wager.status !== Status.Pending || isBusy}
-              className="bg-gray-100 text-secondary-900 dark:bg-secondary-800 dark:text-secondary-100 hover:bg-secondary-300 dark:hover:bg-secondary-700"
+              className="bg-surface-elevated text-foreground hover:bg-border"
             >
               {isBusy ? (
                 <Loader2 className="animate-spin w-4 h-4" />
@@ -136,14 +135,14 @@ export default function WagerActions({
 
       {/* User Actions */}
       {(isCreator || isCounter) && (
-        <div className="bg-white dark:bg-secondary-900 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-bold mb-4">Your Actions</h2>
+        <div className="glass rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-foreground mb-4">Your Actions</h2>
           <div className="flex flex-col sm:flex-row gap-4">
             {/* Concede */}
             <ActionButton
               onClick={handleConcede}
               disabled={wager.status !== Status.Countered || isBusy}
-              className="bg-gray-100 text-secondary-900 dark:bg-secondary-800 dark:text-secondary-100 hover:bg-secondary-300 dark:hover:bg-secondary-700"
+              className="bg-surface-elevated text-foreground hover:bg-border"
             >
               {isBusy ? (
                 <Loader2 className="animate-spin w-4 h-4" />
@@ -157,7 +156,7 @@ export default function WagerActions({
               <ActionButton
                 onClick={handleCancel}
                 disabled={wager.status !== Status.Pending || isBusy}
-                className="bg-red-600 text-white hover:bg-red-700 disabled:bg-red-400 dark:disabled:bg-red-800"
+                className="bg-danger text-white hover:bg-danger/80"
               >
                 {isBusy ? (
                   <Loader2 className="animate-spin w-4 h-4" />
@@ -172,13 +171,13 @@ export default function WagerActions({
 
       {/* Admin Actions */}
       {isAdmin && wager.status === Status.Countered && (
-        <div className="bg-white dark:bg-secondary-900 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-bold mb-4">Admin Actions</h2>
+        <div className="glass rounded-2xl p-6">
+          <h2 className="text-xl font-bold text-foreground mb-4">Admin Actions</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <ActionButton
               onClick={() => handleResolve(Outcome.CreatorWon)}
               disabled={isBusy}
-              className="bg-blue-600 text-white hover:bg-blue-700"
+              className="bg-primary text-white hover:bg-primary-hover"
             >
               {isBusy ? (
                 <Loader2 className="animate-spin w-4 h-4" />
@@ -189,7 +188,7 @@ export default function WagerActions({
             <ActionButton
               onClick={() => handleResolve(Outcome.Draw)}
               disabled={isBusy}
-              className="bg-green-600 text-white hover:bg-green-700"
+              className="bg-success text-white hover:bg-success/80"
             >
               {isBusy ? (
                 <Loader2 className="animate-spin w-4 h-4" />
@@ -200,7 +199,7 @@ export default function WagerActions({
             <ActionButton
               onClick={() => handleResolve(Outcome.CounterWon)}
               disabled={isBusy}
-              className="bg-yellow-500 text-white hover:bg-yellow-600"
+              className="bg-warning text-black hover:bg-warning/80"
             >
               {isBusy ? (
                 <Loader2 className="animate-spin w-4 h-4" />
@@ -211,21 +210,23 @@ export default function WagerActions({
           </div>
         </div>
       )}
+
       {/* Resolved State */}
       {wager.status === Status.Resolved && (
-        <div className="bg-white dark:bg-secondary-900 rounded-2xl shadow-sm p-6 text-center">
-          <p className="text-md text-gray-500">Wager already resolved.</p>
+        <div className="glass rounded-2xl p-6 text-center">
+          <p className="text-md text-text-muted">Wager already resolved.</p>
         </div>
       )}
+
       {/* Cancelled State */}
       {wager.status === Status.Cancelled && (
-        <div className="bg-white dark:bg-secondary-900 rounded-2xl shadow-sm p-6 text-center">
-          <p className="text-md text-gray-500">Wager already cancelled.</p>
+        <div className="glass rounded-2xl p-6 text-center">
+          <p className="text-md text-text-muted">Wager already cancelled.</p>
         </div>
       )}
 
       {/* Error */}
-      {error && <p className="text-sm text-red-500">{error}</p>}
+      {error && <p className="text-sm text-danger">{error}</p>}
     </div>
   );
 }

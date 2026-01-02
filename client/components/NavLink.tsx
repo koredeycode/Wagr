@@ -7,18 +7,15 @@ type NavItem = {
   name: string;
   href: string;
 };
+
 const NavLink = ({ name, href }: NavItem) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname === href || pathname.startsWith(href + "/");
 
   return (
     <Link
       href={href}
-      className={
-        isActive
-          ? "text-primary text-sm font-bold"
-          : "text-text hover:text-primary text-sm font-medium transition-colors"
-      }
+      className={`nav-link text-sm font-medium ${isActive ? "active" : ""}`}
     >
       {name}
     </Link>
