@@ -76,21 +76,37 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
   }, [socket]);
 
   // Fetch notifications from DB on load
-  const { data: dbNotifications } = useQuery({
+  const { data: dbNotifications, error: notifError } = useQuery({
     queryKey: ["notifications", address],
     queryFn: async (): Promise<Notification[]> => {
-      if (!address) return [];
-      const response = await fetch(`/api/notifications?address=${address}`, {
+      console.log("[NotificationContext] Fetching notifications...");
+      
+      const response = await fetch(`/api/notifications`, {
         method: "GET",
       });
+      
+      console.log("[NotificationContext] Response status:", response.status);
+      
       if (!response.ok) {
-        throw new Error("Failed to fetch notifications");
+        const errorText = await response.text();
+        console.error("[NotificationContext] Fetch failed:", response.status, errorText);
+        throw new Error(`Failed to fetch notifications: ${response.status}`);
       }
-      return response.json();
+      
+      const data = await response.json();
+      console.log("[NotificationContext] Fetched notifications:", data);
+      return data;
     },
     enabled: !!address,
     refetchOnWindowFocus: false,
   });
+
+  // Log any query errors
+  useEffect(() => {
+    if (notifError) {
+      console.error("[NotificationContext] Query error:", notifError);
+    }
+  }, [notifError]);
 
   // Keep state in sync with DB notifications
   useEffect(() => {
